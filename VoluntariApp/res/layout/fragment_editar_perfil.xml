@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.icmvoluntariap.EditarPerfilActivity$PlaceholderFragment" >
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:ems="10"
+            android:hint="Nome Completo"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_below="@+id/password"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:ems="10"
+            android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/idade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_below="@+id/email"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:ems="10"
+            android:hint="Idade"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_below="@+id/idade"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:ems="10"
+            android:hint="@string/prompt_phone"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/profissao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_below="@+id/phone"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:ems="10"
+            android:hint="Profissão"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/distrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_below="@+id/profissao"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:ems="10"
+            android:hint="Distrito"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/distrito"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/apptheme_btn_default_holo_light"
+            android:clickable="true"
+            android:onClick="chageUser"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+        android:text="@string/action_actualizar" />
+    </LinearLayout>
+
+</RelativeLayout>

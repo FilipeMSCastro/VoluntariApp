@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.icmvoluntariap"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- OpenGL -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <!-- Fim do OpenGL -->
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Lista de Permissoes necessarias -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+     The following two permissions are not required to use
+     Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Fim da Lista de Permissoes necessarias -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Voluntariapp" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.icmvoluntariap.MainActivity"
+            android:label="@string/app_name" >
+         </activity>
+        
+        <activity
+            android:name="com.icmvoluntariap.CaptureQrCode"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.icmvoluntariap.LoginActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+              <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.icmvoluntariap.Mapa"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.icmvoluntariap.RegisterActivity"
+            android:label="@string/app_name" >
+               
+        </activity>
+        <!-- Chave dos mapas -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDgxPSFkQxuyWqXro9WIrdry9XYC8YP4qY" />
+        <!-- Fim da chave dos mapas -->
+
+        <activity
+            android:name="com.icmvoluntariap.FeedActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.icmvoluntariap.EditarPerfilActivity"
+            android:label="@string/app_name" >
+           
+            
+        </activity>
+    </application>
+
+</manifest>

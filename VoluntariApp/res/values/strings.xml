@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VoluntariApp</string>
+    <string name="title_section1">Home</string>
+    <string name="title_section2">Login</string>
+    <string name="title_section3">Registar</string>
+    <string name="title_section4">Definições</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Action</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_register">Registo</string>
+    <string name="title_activity_hello">HelloActivity</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
+    <string name="title_activity_login">Login</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_user">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_phone">Telefone</string>
+    <string name="action_register">Registar</string>
+    <string name="action_actualizar">Actualizar</string>
+    <string name="action_sign_in">Login</string>
+    <string name="title_activity_feed">FeedActivity</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+    <string name="title_activity_option">OptionActivity</string>
+    <string name="title_activity_mai">MainActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="hit_distancia">Distancia em Km</string>
+    <string name="action_settings">Menu Principal</string>
+    <string name="action_perfil">Editar Perfil</string>
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+    <string name="maps">Mapa Proximidade</string>
+    <string name="sobre">Trabalho desenvolvido no contexto das unidades curriculares de Introdução a computação movel Desgin projecto III , 2013-14</string>
+    <string name="autores_deca">Designers: Emanuel Delgado | Afonso Paiva</string>
+    <string name="autores_deti">Developers: António Freire | Filipe Castro</string>
+    <string name="ver_mapa">Visualizar mapa</string>
+    <string name="empty" />
+    <string name="title_activity_feeed">FeedActivity</string>
+    <string name="title_activity_editar_perfil">EditarPerfilActivity</string>
+
+</resources>

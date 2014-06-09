@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/distancia"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:ems="10"
+        android:hint="@string/hit_distancia"
+        android:inputType="number"
+        android:maxLines="1"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/apptheme_btn_default_holo_light"
+        android:clickable="true"
+        android:onClick="enviaLocalizacao"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:text="@string/ver_mapa" />
+
+</LinearLayout>

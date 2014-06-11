@@ -47,6 +47,7 @@ public class MainActivity extends Activity {
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	CustomDrawerAdapter adapter;
+	
 
 	List<DrawerItem> dataList;
 

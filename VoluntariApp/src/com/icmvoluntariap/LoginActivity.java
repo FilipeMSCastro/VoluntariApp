@@ -1,11 +1,16 @@
 package com.icmvoluntariap;
 
 import java.io.File;
+import java.util.List;
 
 import com.icmvoluntariap.R;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.app.Activity;
@@ -62,36 +67,57 @@ public class LoginActivity extends Activity {
 		EditText pass = (EditText) findViewById(R.id.password);
 		final String password = pass.getText().toString();
 
-		ParseUser.logInInBackground(username, password, new LogInCallback() {
+			
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("role");
+		query.whereEqualTo("id", username);
+			
+		query.getFirstInBackground(new GetCallback<ParseObject>(){
 
 			@Override
-			public void done(ParseUser user, ParseException e) {
-				// TODO Auto-generated method stub
-				if (user != null) {
-					Toast toast = Toast.makeText(LoginActivity.this,
-							"Login Efectuado!", Toast.LENGTH_SHORT);
-					LinearLayout toastLayout = (LinearLayout) toast.getView();
-					TextView toastTV = (TextView) toastLayout.getChildAt(0);
-					toastTV.setTextSize(20);
-					toast.setGravity(Gravity.CENTER, 0, 0);
-					toast.show();
+			public void done(ParseObject arg, ParseException arg1) {
+				
+				String role=arg.getString("role");
+				
+				if(role.equals("user")){
 
-					Intent in = new Intent(LoginActivity.this,
-							MainActivity.class);
-					startActivity(in);
+					ParseUser.logInInBackground(username, password, new LogInCallback() {
 
-				} else {
-					Toast toast = Toast.makeText(LoginActivity.this,
-							"Erro no Login!", Toast.LENGTH_SHORT);
-					LinearLayout toastLayout = (LinearLayout) toast.getView();
-					TextView toastTV = (TextView) toastLayout.getChildAt(0);
-					toastTV.setTextSize(20);
-					toast.setGravity(Gravity.CENTER, 0, 0);
-					toast.show();
+				@Override
+				public void done(ParseUser user, ParseException e) {
+					// TODO Auto-generated method stub
+					if (user != null) {
+						Toast toast = Toast.makeText(LoginActivity.this,
+								"Login Efectuado!", Toast.LENGTH_SHORT);
+						LinearLayout toastLayout = (LinearLayout) toast.getView();
+						TextView toastTV = (TextView) toastLayout.getChildAt(0);
+						toastTV.setTextSize(20);
+						toast.setGravity(Gravity.CENTER, 0, 0);
+						toast.show();
+
+						Intent in = new Intent(LoginActivity.this,
+								MainActivity.class);
+						startActivity(in);
+
+					} else {
+						Toast toast = Toast.makeText(LoginActivity.this,
+								"Erro no Login!", Toast.LENGTH_SHORT);
+						LinearLayout toastLayout = (LinearLayout) toast.getView();
+						TextView toastTV = (TextView) toastLayout.getChildAt(0);
+						toastTV.setTextSize(20);
+						toast.setGravity(Gravity.CENTER, 0, 0);
+						toast.show();
+					}
 				}
-			}
-		});
+			});
 
+				}
+				else if(role.equals("inst")){
+					
+				}
+				
+			}});
+		
+		
 	}
 
 	public void reg(View v) {

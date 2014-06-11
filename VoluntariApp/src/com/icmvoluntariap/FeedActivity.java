@@ -2,7 +2,6 @@ package com.icmvoluntariap;
 
 import java.util.Locale;
 
-import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -18,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.os.Build;
 
 public class FeedActivity extends FragmentActivity implements
 		ActionBar.TabListener {

@@ -9,8 +9,11 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -247,7 +250,12 @@ public class MainActivity extends Activity {
 
 		// adiciona as instituições criadas a lista
 		// listagemInstituicoes.add(i1);
-		listagemInstituicoes.add(i2);
+		
+		int distancia = 50;
+		
+		check_and_add(i1,listagemInstituicoes,distancia);
+		check_and_add(i2,listagemInstituicoes,distancia);
+
 
 		Bundle b = new Bundle();
 
@@ -260,16 +268,50 @@ public class MainActivity extends Activity {
 		intent.putExtras(b);
 		startActivity(intent);
 	}
-
-	private int distanciaInstituicao(Instituicao i) {
-
-		int dist = 0;
-
-		i.getCoordenadasLat();
-		i.getCoordenadasLong();
-
-		return dist;
+	
+	private boolean check_and_add(Instituicao i, InstituicaoList lista, int vall){
+	
+		boolean flag=false;
+		
+		LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE); 
+		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		double longitude = location.getLongitude();
+		double latitude = location.getLatitude();
+		
+		if(distance(i.getCoordenadasLat(),i.getCoordenadasLong(),latitude,longitude)<vall){
+			lista.add(i);
+			flag = true;
+		}
+		
+		return flag;
+		
 	}
+	
+	private double distance(double lat1, double lon1, double lat2, double lon2) {
+	      double theta = lon1 - lon2;
+	      double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+	      dist = Math.acos(dist);
+	      dist = rad2deg(dist);
+	      dist = dist * 60 * 1.1515;
+	      
+	      dist = dist * 1.609344;
+
+	      return (dist);
+	    }
+
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	    /*::  This function converts decimal degrees to radians             :*/
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	    private double deg2rad(double deg) {
+	      return (deg * Math.PI / 180.0);
+	    }
+
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	    /*::  This function converts radians to decimal degrees             :*/
+	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+	    private double rad2deg(double rad) {
+	      return (rad * 180.0 / Math.PI);
+	    }
 
 	public void lerQrcode(View v) {
 

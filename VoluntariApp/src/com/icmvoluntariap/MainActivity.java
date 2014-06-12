@@ -47,7 +47,6 @@ public class MainActivity extends Activity {
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	CustomDrawerAdapter adapter;
-	
 
 	List<DrawerItem> dataList;
 
@@ -118,23 +117,27 @@ public class MainActivity extends Activity {
 		// }
 	}
 
-	public void ua(View v){
-		Intent browserIntent = new Intent("android.intent.action.VIEW",Uri.parse("http://www.ua.pt"));
+	public void ua(View v) {
+		Intent browserIntent = new Intent("android.intent.action.VIEW",
+				Uri.parse("http://www.ua.pt"));
 
 		startActivity(browserIntent);
 	}
 
-	public void deca(View v){
-		Intent browserIntent = new Intent("android.intent.action.VIEW",Uri.parse("http://www.ua.pt/deca/"));
+	public void deca(View v) {
+		Intent browserIntent = new Intent("android.intent.action.VIEW",
+				Uri.parse("http://www.ua.pt/deca/"));
 
 		startActivity(browserIntent);
 	}
-	
-	public void deti(View v){
-		Intent browserIntent = new Intent("android.intent.action.VIEW",Uri.parse("http://www.ua.pt/deti/"));
+
+	public void deti(View v) {
+		Intent browserIntent = new Intent("android.intent.action.VIEW",
+				Uri.parse("http://www.ua.pt/deti/"));
 
 		startActivity(browserIntent);
 	}
+
 	public void SelectItem(int possition) {
 
 		Fragment fragment = null;
@@ -245,18 +248,17 @@ public class MainActivity extends Activity {
 
 		// cria instituições de exemplo (falta ir buscar a base de dados online)
 		Instituicao i1 = new Instituicao("abracos", "9666666666",
-				"aaa@ppp.com", 40.629842, -8.654867, "Aveiro");
+				"aaa@ppp.com", 41.629842, -9.654867, "Aveiro");
 		Instituicao i2 = new Instituicao("abracos2", "9666666666",
 				"aaa@ppp.com", 40.629042, -8.654867, "Aveiro");
 
 		// adiciona as instituições criadas a lista
 		// listagemInstituicoes.add(i1);
-		
-		int distancia = 50;
-		
-		check_and_add(i1,listagemInstituicoes,distancia);
-		check_and_add(i2,listagemInstituicoes,distancia);
 
+		int distancia = 50; // ->valor lido do botão!
+
+		check_and_add(i1, listagemInstituicoes, distancia);
+		check_and_add(i2, listagemInstituicoes, distancia);
 
 		Bundle b = new Bundle();
 
@@ -269,50 +271,64 @@ public class MainActivity extends Activity {
 		intent.putExtras(b);
 		startActivity(intent);
 	}
-	
-	private boolean check_and_add(Instituicao i, InstituicaoList lista, int vall){
-	
-		boolean flag=false;
-		
-		LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE); 
-		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+	private boolean check_and_add(Instituicao i, InstituicaoList lista, int vall) {
+
+		boolean flag = false;
+
+		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		Location location = lm
+				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		double longitude = location.getLongitude();
 		double latitude = location.getLatitude();
-		
-		if(distance(i.getCoordenadasLat(),i.getCoordenadasLong(),latitude,longitude)<vall){
+
+		if (distance(i.getCoordenadasLat(), i.getCoordenadasLong(), latitude,
+				longitude) < vall) {
 			lista.add(i);
 			flag = true;
 		}
-		
+
 		return flag;
-		
+
 	}
-	
+
 	private double distance(double lat1, double lon1, double lat2, double lon2) {
-	      double theta = lon1 - lon2;
-	      double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
-	      dist = Math.acos(dist);
-	      dist = rad2deg(dist);
-	      dist = dist * 60 * 1.1515;
-	      
-	      dist = dist * 1.609344;
+		double theta = lon1 - lon2;
+		double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+				+ Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
+				* Math.cos(deg2rad(theta));
+		dist = Math.acos(dist);
+		dist = rad2deg(dist);
+		dist = dist * 60 * 1.1515;
 
-	      return (dist);
-	    }
+		dist = dist * 1.609344;
 
-	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	    /*::  This function converts decimal degrees to radians             :*/
-	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	    private double deg2rad(double deg) {
-	      return (deg * Math.PI / 180.0);
-	    }
+		return (dist);
+	}
 
-	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	    /*::  This function converts radians to decimal degrees             :*/
-	    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	    private double rad2deg(double rad) {
-	      return (rad * 180.0 / Math.PI);
-	    }
+	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	/* :: This function converts decimal degrees to radians : */
+	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	private double deg2rad(double deg) {
+		return (deg * Math.PI / 180.0);
+	}
+
+	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	/* :: This function converts radians to decimal degrees : */
+	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	private double rad2deg(double rad) {
+		return (rad * 180.0 / Math.PI);
+	}
+
+	private int distanciaInstituicao(Instituicao i) {
+
+		int dist = 0;
+
+		i.getCoordenadasLat();
+		i.getCoordenadasLong();
+
+		return dist;
+	}
 
 	public void lerQrcode(View v) {
 
@@ -347,7 +363,7 @@ public class MainActivity extends Activity {
 				} else if (contents.contains("FIM")) {
 
 					TextView mensagem = (TextView) findViewById(R.id.mensagem);
-					mensagem.setText("Obrigado pela Ajuda!");
+					mensagem.setText("Obrigado pela Ajuda! Prestou "+getTime()+" minutos.");
 
 				} else {
 					TextView mensagem = (TextView) findViewById(R.id.mensagem);

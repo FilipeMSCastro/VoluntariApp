@@ -1,4 +1,11 @@
 <resources>
+
+    <string name="title_activity_login">VoluntariApp</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register">Login</string>
     <string name="action_sign_in_short">Login</string>
     <string name="action_forgot_password">Recuperar password</string>
     <string name="login_progress_signing_in">A iniciar&#8230;</string>
